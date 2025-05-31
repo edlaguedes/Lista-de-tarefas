@@ -66,7 +66,7 @@ class ToDo:
                                 ft.IconButton(
                                     icon="delete",
                                     icon_color="red",
-                                    data=res[0],  # passa o nome da tarefa para o botão
+                                    data=res[0],  
                                     on_click=self.delete_task
                                 )
                             ]
@@ -125,9 +125,9 @@ class ToDo:
         self.page.add(input_bar, tabs, tasks)
 
     def delete_task(self, e):
-        task_name = e.control.data  # pega o nome da tarefa do botão
+        task_name = e.control.data  
         self.db_execute("DELETE FROM tasks WHERE name = ?", [task_name])
-        self.results = self.db_execute('SELECT * FROM tasks')  # recarrega tarefas
+        self.results = self.db_execute('SELECT * FROM tasks')  
         self.update_task_list()
 # Inicialização do aplicativo
 ft.app(target=ToDo)
